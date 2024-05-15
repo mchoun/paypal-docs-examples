@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css"
-      href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css" />
-    <title>PayPal JS SDK Advanced Integration - Checkout Flow</title>
-  </head>
-  <body>
-    <div id="paypal-button-container" class="paypal-button-container"></div>
-    <div id="card-form" class="card_container">
-      <div id="card-name-field-container"></div>
-      <div id="card-number-field-container"></div>
-      <div id="card-expiry-field-container"></div>
-      <div id="card-cvv-field-container"></div>
-      <button id="multi-card-field-button" type="button">Pay now with Card</button>
-    </div>
-    <p id="result-message"></p>
-    <script src="https://www.paypal.com/sdk/js?components=buttons,card-fields&client-id=<%= clientId %>"></script>
-    <script src="checkout.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css"
+    href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css" />
+  <title>PayPal JS SDK Advanced Integration - Checkout Flow</title>
+</head>
+
+<body>
+  <style>
+    .card-field {
+      box-sizing: border-box;
+      height: 40px;
+      /* border: solid 1px red; */
+      background-color: hsl(210deg 19.39% 23.13%);
+      color: white;
+      border-radius: 10rem;
+      padding: 10px;
+      position: relative;
+    }
+
+    .card_container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: hsl(210deg, 30%, 8%);
+    }
+  </style>
+  <div id="paypal-button-container" class="paypal-button-container"></div>
+  <div id="card-form" class="card_container">
+    <div id="card-name-field-container" class="card-field"></div>
+    <div id="card-number-field-container" class="card-field"></div>
+    <div id="card-expiry-field-container" class="card-field"></div>
+    <div id="card-cvv-field-container" class="card-field"></div>
+    <button id="multi-card-field-button" type="button">Pay now with Card</button>
+  </div>
+  <p id="result-message"></p>
+  <!-- <script src="https://www.paypal.com/sdk/js?components=buttons,card-fields&client-id=<%= clientId %>"></script> -->
+  <script
+    src="https://localhost.paypal.com:8443/sdk/js?components=card-fields&client-id=B_AxqJZnX9Fg6HifHgzGWffqQhnRxsdiXR2eGsIS50nBpG8IPJXi7-bZA4zgvlDGaEs0QwxlTGbuGdRmo0&locale=en_US&commit=true&debug=true&intent=capture&buyer-country=US"></script>
+  <script src="checkout.js"></script>
+</body>
+
 </html>
