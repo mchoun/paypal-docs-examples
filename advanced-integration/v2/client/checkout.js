@@ -107,9 +107,12 @@ const cardField = window.paypal.CardFields({
   createOrder: createOrderCallback,
   onApprove: onApproveCallback,
   disableDefaultStyle: true,
+  theme: {
+    name: 'none' | 'light',
+  },
   style: {
     input: {
-      color: 'white',
+      color: 'black',
     },
     '::placeholder': {
       color: 'red',
@@ -122,7 +125,12 @@ if (cardField.isEligible()) {
   const nameField = cardField.NameField()
   nameField.render('#card-name-field-container')
 
-  const numberField = cardField.NumberField()
+  const numberField = cardField.NumberField({
+    inputEvents: {
+      onChange: (data) => console.log('number: change', data),
+      onFocus: (data) => console.log('number: focus', data),
+    },
+  })
   numberField.render('#card-number-field-container')
 
   const cvvField = cardField.CVVField()
